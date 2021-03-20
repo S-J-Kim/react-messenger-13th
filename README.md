@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+## 2주차 미션: React-Messenger💌
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+### 서론
 
-In the project directory, you can run:
+---
 
-### `npm start`
+안녕하세요 13기 프론트엔드 운영진 서유빈입니다😆
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2주차부터는, React를 사용하여 미션을 진행해주시면 되는데요, 리액트 첫 미션인 만큼 React 자체에 익숙해지기 위한 시간을 가져보시게 될거에요!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+또한 1주차에서 사용해봤던 바닐라 JS의 불편함이라고 할 수 있는 점들을 리액트가 어떻게 해결하는지 직접 코드를 짜보면서 알아보면서 리액트의 컨셉을 전체적으로 이해하시면 좋을 것 같습니다~
 
-### `npm test`
+2주차 미션 마감일시는 2021년 3월 26일 금요일까지입니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+진행 중 어려운 상황이 있다면, 우선 스스로 공부하고 찾아보시구
 
-### `npm run build`
+너무 해결이 안된다 싶으면 슬랙의 qna채널에 올려주시면 됩니다~~
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+PR 보내실땐 양식 맞춰주시고, 이번주 부터는 now로 배포한 링크까지 PR 보내주실때 링크 첨부해주세요~~
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+13기분들 너무 멋져요!! 이번주도 화이팅✨
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 미션
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 미션목표
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- React의 기초를 이해한다.
+- useState로 컴포넌트의 상태를 관리할 수 있게된다.
+- useEffect의 사용법을 이해한다.
 
-## Learn More
+### 기한
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 2020년 9월 25일(금)까지
 
-### Code Splitting
+### Key Questions?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+- Virtual DOM이 무엇일까요?
+- 미션을 진행하면서 느낀, 리액트를 사용하는 장점이 있었다면?
+- 리액트에서는 상태를 어떻게 관리할까요?
+- styled-components 사용후기 (CSS와 비교)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 필수 요건
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- 함수형 컴포넌트를 사용한다.
+- styled-component를 이용하여 스타일링 한다. 스타일링은 자유롭게! 기존에 있는 메신저를 가져오셔도 되고 완전히 독창적인걸 만드셔도 됩니다. 
+  다만 기본 구성요소들은 지켜주세요! 그리고 색도 다양하게 넣어보시구요
+- 상단바에 메시지를 보내는 사람의 프로필을 띄운다. + 상단바의 프로필로 메시지 발신자를 바꿀 수 있게 한다.
+- 공백메시지는 입력되지 않도록 핸들링 한다. + alert 메세지 띄우기
+- 메시지 전송후 입력칸을 비워준다.
+- 메시지 전송후 스크롤을 밑으로 내려준다. (Hint : useEffect + scrollBy 이용)
+- 컴포넌트 이름을 역할이 잘 드러나게 짓는다.
+- 개발자도구에서 Style을 복사하지말고, 직접 styled-components를 사용하여 만드는 연습을 한다ㅠㅠ.
+- [결과 화면](https://react-messenger-12th-2z7y80m5p.vercel.app/chat/:nayubin)을 구현한다.
 
-### Advanced Configuration
+## 로컬 실행방법
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+`npm start` : 로컬에서 react application을 자동으로 리로드하여 실행시켜줍니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+배포는 자유롭게 하시면 됩니다.
 
-### `npm run build` fails to minify
+## 링크 및 참고자료
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+- [create react app (CRA)](https://create-react-app.dev/docs/getting-started/)
+- [리액트 docs 주요 개념 1-12](https://ko.reactjs.org/docs/hello-world.html)
+- [리액트 docs Hook 1-3](https://ko.reactjs.org/docs/hooks-intro.html)
+- [컴포넌트 네이밍을 위한 자바스크립트 네이밍 컨벤션](https://ui.toast.com/fe-guide/ko_CODING-CONVENSION/#%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99)
+- [useState, useEffect hooks](https://velog.io/@velopert/react-hooks#1-usestate)
+- [styled-component](https://styled-components.com/docs/basics#getting-started)
