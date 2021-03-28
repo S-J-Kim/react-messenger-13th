@@ -52,6 +52,11 @@ function App() {
   const handleSendMessage = (event) => {
     event.preventDefault();
 
+    if (currentMessage === '') {
+      alert('메시지를 입력하세요!');
+      return;
+    }
+
     const newMessage = (
       <Message
         messageContent={currentMessage}
@@ -88,7 +93,6 @@ function App() {
         </MessageContainer>
 
         <MessageForm
-          currentUser={currentSendingUser}
           currentMessage={currentMessage}
           onCurrentMessageInputChange={handleCurrentMessageInputChange}
           onSendMessage={handleSendMessage}

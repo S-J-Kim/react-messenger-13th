@@ -17,9 +17,10 @@ const ProfileImage = styled.img`
 
 const MessageBox = styled.span`
   padding: 5px;
-  border-radius: 25%;
+  border-radius: 10px;
   background-color: ${(props) =>
     props.messageSender.id === 0 ? 'white' : 'bisque'};
+  word-break: break-all;
 `;
 
 function Message(props) {
