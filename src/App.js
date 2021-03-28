@@ -18,13 +18,9 @@ const MessengerContainer = styled.div`
   margin: auto;
 `;
 
-const MessageContainerWapper = styled.div`
+const MessageContainer = styled.div`
   height: 100px;
   overflow-y: scroll;
-  display: flex;
-`;
-
-const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: auto;
@@ -46,7 +42,7 @@ function App() {
     },
   };
   const [currentSendingUser, setCurrentSendingUser] = useState(user.me);
-  const messageContentWrap = useRef();
+  const messageContainerRef = useRef();
 
   const handleCurrentMessageInputChange = (event) => {
     setCurrentMessage(event.target.value);
@@ -74,7 +70,7 @@ function App() {
   };
 
   useEffect(() => {
-    messageContentWrap.current.scrollBy(0, 1000);
+    messageContainerRef.current.scrollBy(0, 1000);
   }, [messages]);
 
   return (
@@ -85,9 +81,11 @@ function App() {
           onHeaderClick={handleHeaderClick}
           currentUser={currentSendingUser}
         />
-        <MessageContainerWapper ref={messageContentWrap}>
-          <MessageContainer>{messages}</MessageContainer>
-        </MessageContainerWapper>
+
+        <MessageContainer ref={messageContainerRef}>
+          {messages}
+        </MessageContainer>
+
         <MessageForm
           currentUser={currentSendingUser}
           currentMessage={currentMessage}
