@@ -10,4 +10,13 @@ function Message(props) {
   );
 }
 
+// const Message = React.forwardRef((props, ref) => {
+//   const { messageSender, messageContent } = props;
+//   return (
+//     <div ref={ref}>
+//       {messageSender.name} : {messageContent}
+//     </div>
+//   );
+// });
+
 export default Message;

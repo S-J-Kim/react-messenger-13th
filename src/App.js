@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useRef, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import MessageForm from './form.js';
 import Header from './header.js';
@@ -15,12 +15,19 @@ const MessengerContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 600px;
-  margin: 0 auto;
+  margin: auto;
+`;
+
+const MessageContainerWapper = styled.div`
+  height: 100px;
+  overflow-y: scroll;
+  display: flex;
 `;
 
 const MessageContainer = styled.div`
-  height: 100px;
-  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
 `;
 
 function App() {
@@ -39,13 +46,14 @@ function App() {
     },
   };
   const [currentSendingUser, setCurrentSendingUser] = useState(user.me);
+  const messageContentWrap = useRef();
+
   const handleCurrentMessageInputChange = (event) => {
     setCurrentMessage(event.target.value);
   };
 
   const handleSendMessage = (event) => {
     event.preventDefault();
-    console.log(event.target);
 
     const newMessage = (
       <Message
@@ -65,6 +73,10 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    messageContentWrap.current.scrollBy(0, 1000);
+  }, [messages]);
+
   return (
     <Fragment>
       <GlobalStyle />
@@ -73,7 +85,9 @@ function App() {
           onHeaderClick={handleHeaderClick}
           currentUser={currentSendingUser}
         />
-        <MessageContainer>{messages}</MessageContainer>
+        <MessageContainerWapper ref={messageContentWrap}>
+          <MessageContainer>{messages}</MessageContainer>
+        </MessageContainerWapper>
         <MessageForm
           currentUser={currentSendingUser}
           currentMessage={currentMessage}
