@@ -16,6 +16,7 @@ const MessengerContainer = styled.div`
   flex-direction: column;
   width: 600px;
   margin: auto;
+  background-color: hsla(50, 33%, 25%, 0.75);
 `;
 
 const MessageContainer = styled.div`
