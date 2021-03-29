@@ -16,15 +16,16 @@ const MessengerContainer = styled.div`
   flex-direction: column;
   width: 600px;
   margin: auto;
-  background-color: hsla(50, 33%, 25%, 0.75);
 `;
 
 const MessageContainer = styled.div`
-  height: 100px;
+  height: calc(95vh - 170px);
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   margin-top: auto;
+  padding: 10px;
+  background-color: rgba(33, 33, 33, 0.05);
 `;
 
 function App() {

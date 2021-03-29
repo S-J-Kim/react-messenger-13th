@@ -1,19 +1,53 @@
-import React, { useState } from 'react';
+import React from 'react';
+import styled from 'styled-components';
+
+const MessageSendingForm = styled.form`
+  width: 100%;
+  height: 50px;
+  display: flex !important;
+  align-content: center !important;
+  justify-content: space-around;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.25);
+  padding: 10px 0;
+`;
+
+const MessageInputBox = styled.input`
+  width: 85%;
+  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+  font-size: 15px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const MessageSendingButton = styled.button`
+  background-color: white;
+  width: 10%;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: blue;
+  color: white;
+`;
 
 function MessageForm(props) {
-    const { currentMessage, onCurrentMessageInputChange, onSendMessage } = props;
+  const { currentMessage, onCurrentMessageInputChange, onSendMessage } = props;
 
-    return (
-        <form onSubmit={onSendMessage}>
-            <input
-                type='text'
-                value={currentMessage}
-                placeholder='메세지 입력'
-                onChange={onCurrentMessageInputChange}
-            />
-            <button type="submit">submit</button>
-        </form>
-    )
+  return (
+    <MessageSendingForm onSubmit={onSendMessage}>
+      <MessageInputBox
+        type="text"
+        value={currentMessage}
+        placeholder="메세지 입력"
+        onChange={onCurrentMessageInputChange}
+      />
+      <MessageSendingButton type="submit">전송</MessageSendingButton>
+    </MessageSendingForm>
+  );
 }
 
 export default MessageForm;

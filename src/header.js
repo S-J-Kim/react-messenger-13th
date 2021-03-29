@@ -6,11 +6,12 @@ const HeaderContainer = styled.div`
   display: flex;
   padding: 10px;
   align-items: center;
-  background-color: gray;
+  background-color: rgba(33, 33, 33, 0.15);
 `;
 
 const CurrentUserName = styled.div`
   font-size: 20px;
+  font-weight: bold;
 `;
 
 function Header(props) {
