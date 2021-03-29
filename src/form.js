@@ -7,7 +7,6 @@ const MessageSendingForm = styled.form`
   display: flex !important;
   align-content: center !important;
   justify-content: space-around;
-  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.25);
   padding: 10px 0;
 `;
 
@@ -32,6 +31,7 @@ const MessageSendingButton = styled.button`
   font-weight: bold;
   background-color: blue;
   color: white;
+  margin-right: 10px;
 `;
 
 function MessageForm(props) {
