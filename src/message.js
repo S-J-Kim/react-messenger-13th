@@ -4,7 +4,9 @@ import styled from 'styled-components';
 const MessageItem = styled.div`
   display: flex;
   flex-direction: ${(props) =>
-    props.messageSender.id === 0 ? 'row' : 'row-reverse'};
+    props.messageSender.id === 0
+      ? 'row'
+      : 'row-reverse'}; // sender에 따라 메세지 박스의 위치 다르게 하기 위함.
   align-content: flex-start;
   margin: 10px;
 `;
@@ -36,14 +38,5 @@ function Message(props) {
     </MessageItem>
   );
 }
-
-// const Message = React.forwardRef((props, ref) => {
-//   const { messageSender, messageContent } = props;
-//   return (
-//     <div ref={ref}>
-//       {messageSender.name} : {messageContent}
-//     </div>
-//   );
-// });
 
 export default Message;

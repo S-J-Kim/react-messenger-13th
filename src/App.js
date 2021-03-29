@@ -44,7 +44,7 @@ function App() {
     },
   };
   const [currentSendingUser, setCurrentSendingUser] = useState(user.me);
-  const messageContainerRef = useRef();
+  const messageContainerRef = useRef(); // Message Container 영역을 가르키기 위해 useRef() 사용
 
   const handleCurrentMessageInputChange = (event) => {
     setCurrentMessage(event.target.value);
@@ -53,6 +53,7 @@ function App() {
   const handleSendMessage = (event) => {
     event.preventDefault();
 
+    // 메세지 내용 없이 전송하려 하면 alert
     if (currentMessage === '') {
       alert('메시지를 입력하세요!');
       return;
@@ -64,7 +65,7 @@ function App() {
         messageSender={currentSendingUser}
       />
     );
-    setCurrentMessage('');
+    setCurrentMessage(''); // input form을 비운다.
     setMessages([...messages, newMessage]);
   };
 
