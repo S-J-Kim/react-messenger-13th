@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './chatRoom/App';
+import FriendsList from './friendList/FriendsList.js';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ChatApp from './ChatApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChatApp></ChatApp>
   </React.StrictMode>,
   document.getElementById('root')
 );

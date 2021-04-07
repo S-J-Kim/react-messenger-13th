@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 const HeaderMenuBar = styled.div`
   display: flex;
@@ -36,7 +37,9 @@ function Header(props) {
   return (
     <Fragment>
       <HeaderMenuBar>
-        <HeaderWindowActionButton color={'red'} />
+        <Link to="/chatlist">
+          <HeaderWindowActionButton color={'red'} />
+        </Link>
         <HeaderWindowActionButton color={'orange'} />
         <HeaderWindowActionButton color={'lime'} />
       </HeaderMenuBar>
