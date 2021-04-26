@@ -3,6 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 import MessageForm from './form.js';
 import Header from './header.js';
 import Message from './message.js';
+import FriendList from '../data/Friends.json';
+import ChatList from '../data/Chats.json';
 
 const GlobalStyle = createGlobalStyle`
   display: flex;
@@ -29,17 +31,23 @@ const MessageContainer = styled.div`
   background-color: rgba(33, 33, 33, 0.05);
 `;
 
-function App() {
+function App(props) {
+  const friendId = props.match.params.friendId;
+  const currentFriend = FriendList.filter((item) => {
+    return item.id === parseInt(friendId);
+  });
+
   const [currentMessage, setCurrentMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const user = {
     you: {
-      id: 0,
-      name: 'Elon Musk',
-      profileImage: process.env.PUBLIC_URL + '/images/musk.jpeg',
+      id: currentFriend[0].id,
+      name: currentFriend[0].name,
+      profileImage:
+        process.env.PUBLIC_URL + '/images/' + currentFriend[0].profileImage,
     },
     me: {
-      id: 1,
+      id: 0,
       name: 'Seon-Jong Kim',
       profileImage: process.env.PUBLIC_URL + '/images/sj.png',
     },
@@ -71,7 +79,9 @@ function App() {
   };
 
   const handleHeaderClick = () => {
-    if (currentSendingUser.id === 1) {
+    console.log(currentFriend);
+
+    if (currentSendingUser.id === 0) {
       setCurrentSendingUser(user.you);
     } else {
       setCurrentSendingUser(user.me);

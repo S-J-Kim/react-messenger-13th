@@ -1,0 +1,74 @@
+[
+  {
+    "friendId": 1,
+    "chats": [
+      {
+        "senderId": 1,
+        "message": "안녕하세요~ 준이에요."
+      },
+      {
+        "senderId": 0,
+        "message": "하핫,, 네 안녕하세요"
+      },
+      {
+        "senderId": 1,
+        "message": "어? 이쁘다."
+      }
+    ]
+  },
+  {
+    "friendId": 4,
+    "chats": [
+      {
+        "senderId": 4,
+        "message": "내가 말이여 지난주에 산을 탔는데"
+      },
+      {
+        "senderId": 4,
+        "message": "아이고 이거 너무 힘들더만 아주~"
+      },
+      {
+        "senderId": 0,
+        "message": "아 그랬구나,,,"
+      }
+    ]
+  },
+  {
+    "friendId": 2,
+    "chats": [
+      {
+        "senderId": 2,
+        "message": "임플란티드 키드입니다. 스껄쓰껄"
+      },
+      {
+        "senderId": 2,
+        "message": "우리 둘이 만들어내는 변곡점들이 권력의 다툼으로 점철될거라고"
+      },
+      {
+        "senderId": 2,
+        "message": "아 진짜 매우 킹받네"
+      }
+    ]
+  },
+  {
+    "friendId": 3,
+    "chats": [
+      {
+        "senderId": 3,
+        "message": "어 왔냐?"
+      },
+      {
+        "senderId": 3,
+        "message": "민수야 왔으면 인사를 하라고"
+      },
+      {
+        "senderId": 0,
+        "message": "안녕하세요!"
+      },
+      {
+        "senderId": 3,
+        "message": "그뢥"
+      }
+    ]
+  }
+]
