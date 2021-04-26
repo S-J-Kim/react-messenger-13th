@@ -1,0 +1,34 @@
+{
+  "friends": [
+    {
+      "id": 1,
+      "name": "최준",
+      "statusMessage": "자꾸 쳐다보지 말아요 키스할뻔 했습니다.",
+      "profileImage": "choijoon.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "IMPLANTED KID",
+      "statusMessage": "아 진짜 킹받네??",
+      "profileImage": "implantedkid.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "용남이형",
+      "statusMessage": "민수야 왔으면 인사를해",
+      "profileImage": "yongnam.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "이택조",
+      "statusMessage": "열정! 열정! 열정~!",
+      "profileImage": "taekjo.jpeg"
+    },
+    {
+      "id": 5,
+      "name": "Elon Musk",
+      "statusMessage": "나도 도지코인 물렸다 카톡 그만보내라",
+      "profileImage": "musk.jpeg"
+    }
+  ]
+}

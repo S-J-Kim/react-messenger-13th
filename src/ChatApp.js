@@ -7,11 +7,7 @@ import FriendsList from './friendList/FriendsList.js';
 function ChatApp() {
   return (
     <Router>
-      <Route
-        exact
-        path={['/', '/chatlist', '/settings']}
-        component={NavBar}
-      ></Route>
+      <Route exact path={['/', '/chatlist', '/settings']} component={NavBar} />
 
       <Switch>
         <Route exact path="/" component={FriendsList}></Route>

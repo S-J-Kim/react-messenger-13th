@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import FriendList from '../data/Friends.json';
 
 function FriendsList() {
-  return <div>Friends</div>;
+  const friendList = FriendList.friends.map((item, index) => {
+    return (
+      <Fragment>
+        <div>{item.id}</div>
+        <div>{item.name}</div>
+      </Fragment>
+    );
+  });
+  return <div>{friendList}</div>;
 }
 
 export default FriendsList;

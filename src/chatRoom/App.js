@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useRef, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Route, BrowserRouter } from 'react-router-dom';
 import MessageForm from './form.js';
 import Header from './header.js';
 import Message from './message.js';
@@ -37,12 +36,12 @@ function App() {
     you: {
       id: 0,
       name: 'Elon Musk',
-      profileImage: process.env.PUBLIC_URL + 'images/musk.jpeg',
+      profileImage: process.env.PUBLIC_URL + '/images/musk.jpeg',
     },
     me: {
       id: 1,
       name: 'Seon-Jong Kim',
-      profileImage: process.env.PUBLIC_URL + 'images/sj.png',
+      profileImage: process.env.PUBLIC_URL + '/images/sj.png',
     },
   };
   const [currentSendingUser, setCurrentSendingUser] = useState(user.me);
