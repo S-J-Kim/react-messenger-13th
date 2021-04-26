@@ -33,18 +33,19 @@ const MessageContainer = styled.div`
 
 function App(props) {
   const friendId = props.match.params.friendId;
-  const currentFriend = FriendList.filter((item) => {
+  const currentFriend = FriendList.find((item) => {
     return item.id === parseInt(friendId);
   });
+  const currentChatList = ChatList.find((item) => {
+    return item.friendId === parseInt(friendId);
+  });
 
-  const [currentMessage, setCurrentMessage] = useState('');
-  const [messages, setMessages] = useState([]);
   const user = {
     you: {
-      id: currentFriend[0].id,
-      name: currentFriend[0].name,
+      id: currentFriend.id,
+      name: currentFriend.name,
       profileImage:
-        process.env.PUBLIC_URL + '/images/' + currentFriend[0].profileImage,
+        process.env.PUBLIC_URL + '/images/' + currentFriend.profileImage,
     },
     me: {
       id: 0,
@@ -52,6 +53,19 @@ function App(props) {
       profileImage: process.env.PUBLIC_URL + '/images/sj.png',
     },
   };
+
+  const previousChatList = currentChatList.chats.map((item) => {
+    return (
+      <Message
+        messageContent={item.message}
+        messageSender={item.senderId === 0 ? user.me : user.you}
+      />
+    );
+  });
+
+  const [currentMessage, setCurrentMessage] = useState('');
+  const [messages, setMessages] = useState(previousChatList);
+
   const [currentSendingUser, setCurrentSendingUser] = useState(user.me);
   const messageContainerRef = useRef(); // Message Container 영역을 가르키기 위해 useRef() 사용
 
@@ -79,7 +93,7 @@ function App(props) {
   };
 
   const handleHeaderClick = () => {
-    console.log(currentFriend);
+    console.log(currentChatList.chats);
 
     if (currentSendingUser.id === 0) {
       setCurrentSendingUser(user.you);
