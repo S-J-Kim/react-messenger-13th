@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react';
-import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './base/NavBar.js';
 import ChatList from './chatList/ChatList.js';
 import FriendsList from './friendList/FriendsList.js';
 import Friends from './data/Friends.json';
+import Chats from './data/Chats.json';
 
 function ChatApp() {
+  useEffect(() => {
+    localStorage.setItem('ChatList', JSON.stringify(Chats));
+  }, []);
+
   return (
     <Router>
       <Route exact path={['/', '/chatlist', '/settings']} component={NavBar} />
@@ -14,8 +19,8 @@ function ChatApp() {
         <Route exact path="/">
           <FriendsList friends={Friends} />
         </Route>
-        <Route path="/chatlist" component={ChatList}>
-          <ChatList friends={Friends} />
+        <Route path="/chatlist">
+          <ChatList friends={Friends} key={Date.now()} />
         </Route>
         <Route path="/settings" />
       </Switch>

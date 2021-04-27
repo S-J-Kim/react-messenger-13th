@@ -4,7 +4,7 @@ import MessageForm from './form.js';
 import Header from './header.js';
 import Message from './message.js';
 import FriendList from '../data/Friends.json';
-import ChatList from '../data/Chats.json';
+import { useParams } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
   display: flex;
@@ -32,13 +32,24 @@ const MessageContainer = styled.div`
 `;
 
 function App(props) {
-  const friendId = props.match.params.friendId;
+  const { friendId } = useParams();
   const currentFriend = FriendList.find((item) => {
     return item.id === parseInt(friendId);
   });
-  const currentChatList = ChatList.find((item) => {
-    return item.friendId === parseInt(friendId);
+
+  const { chatList, onChatListChange } = props;
+
+  const currentChatListIdx = chatList.findIndex((item) => {
+    return item.friendId === currentFriend.id;
   });
+
+  const [currentChatList, setCurrentChatList] = useState(
+    chatList[currentChatListIdx]
+  );
+
+  // const currentChatList = ChatList.find((item) => {
+  //   return item.friendId === parseInt(friendId);
+  // });
 
   const user = {
     you: {
@@ -90,6 +101,15 @@ function App(props) {
     );
     setCurrentMessage(''); // input form을 비운다.
     setMessages([...messages, newMessage]);
+
+    const modifiedChatList = currentChatList;
+
+    modifiedChatList.chats.push({
+      senderId: currentSendingUser.id,
+      message: currentMessage,
+    });
+
+    setCurrentChatList(modifiedChatList);
   };
 
   const handleHeaderClick = () => {
@@ -105,6 +125,17 @@ function App(props) {
   useEffect(() => {
     messageContainerRef.current.scrollBy(0, 1000);
   }, [messages]);
+
+  useEffect(() => {
+    return () => {
+      const chatListToLocalstorage = chatList;
+      chatListToLocalstorage.splice(currentChatListIdx, 1, currentChatList);
+
+      onChatListChange(chatList);
+
+      localStorage.setItem('ChatList', JSON.stringify(chatList));
+    };
+  }, []);
 
   return (
     <Fragment>
