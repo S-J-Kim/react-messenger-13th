@@ -16,6 +16,7 @@ const MessageInputBox = styled.input`
   border: none;
   padding-left: 10px;
   font-size: 15px;
+  background-color: rgba(0, 0, 0, 0);
 
   &:focus {
     outline: none;
