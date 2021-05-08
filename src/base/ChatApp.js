@@ -24,6 +24,10 @@ const ChatAppContainer = styled.div`
 `;
 
 function ChatApp() {
+  /*
+  페이지를 처음 로딩할 때, 채팅 정보가 들어있는 json 파일을 불러온다.
+  이후 이 json 파일을 localStorage에 저장하여 component간 주고받는다.
+  */
   useEffect(() => {
     localStorage.setItem('ChatList', JSON.stringify(Chats));
   }, []);
@@ -38,7 +42,8 @@ function ChatApp() {
             path={['/', '/chatlist', '/settings']}
             component={NavBar}
           />
-
+          /* 친구 목록 컴포넌트와 채팅 목록 컴포넌트에, 친구 정보 json파일을
+          props로 던진다. 이를 가지고 각 컴포넌트에서 렌더링하게 된다. */
           <Switch>
             <Route exact path="/">
               <FriendsList friends={Friends} />

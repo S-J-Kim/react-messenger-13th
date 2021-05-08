@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { isStyledComponent } from 'styled-components';
+import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   display: flex;

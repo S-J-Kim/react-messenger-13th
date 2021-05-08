@@ -31,8 +31,9 @@ const MessageContainer = styled.div`
   background-color: rgba(33, 33, 33, 0.05);
 `;
 
-function App(props) {
+function Chatroom(props) {
   const { friendId } = useParams();
+  // 채팅방의 parameter로 받은 id는 곧 친구의 id이다.
   const currentFriend = FriendList.find((item) => {
     return item.id === parseInt(friendId);
   });
@@ -43,13 +44,11 @@ function App(props) {
     return item.friendId === currentFriend.id;
   });
 
+  /* Chats.json은 모든 대화 정보를 담고 있는데,
+  이를 props로 받았기 때문에 현재 대화중인 친구와의 채팅 목록만 따로 state로 선언  */
   const [currentChatList, setCurrentChatList] = useState(
     chatList[currentChatListIdx]
   );
-
-  // const currentChatList = ChatList.find((item) => {
-  //   return item.friendId === parseInt(friendId);
-  // });
 
   const user = {
     you: {
@@ -65,6 +64,7 @@ function App(props) {
     },
   };
 
+  /* 채팅방에 들어갈 때, 전에 주고 받았던 채팅 목록들을 미리 불러와 렌더링 해놓는다. */
   const previousChatList = currentChatList.chats.map((item) => {
     return (
       <Message
@@ -104,6 +104,7 @@ function App(props) {
 
     const modifiedChatList = currentChatList;
 
+    /* 메세지가 추가될 때 마다 위에서 선언한 currentChatList에 방금 보낸 메세지를 추가한다.  */
     modifiedChatList.chats.push({
       senderId: currentSendingUser.id,
       message: currentMessage,
@@ -126,6 +127,8 @@ function App(props) {
     messageContainerRef.current.scrollBy(0, 1000);
   }, [messages]);
 
+  /* 채팅방을 나갈 때 마다, 주고받았던 채팅이 저장된 state를
+  Chats.json파일에 업데이트한다. 이와 동시에 채팅방 목록에서 마지막 메세지 미리보기가 갱신된다. */
   useEffect(() => {
     return () => {
       const chatListToLocalstorage = chatList;
@@ -160,4 +163,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default Chatroom;
