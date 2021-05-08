@@ -42,8 +42,6 @@ function ChatApp() {
             path={['/', '/chatlist', '/settings']}
             component={NavBar}
           />
-          /* 친구 목록 컴포넌트와 채팅 목록 컴포넌트에, 친구 정보 json파일을
-          props로 던진다. 이를 가지고 각 컴포넌트에서 렌더링하게 된다. */
           <Switch>
             <Route exact path="/">
               <FriendsList friends={Friends} />
